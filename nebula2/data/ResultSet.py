@@ -5,7 +5,7 @@
 #
 # This source code is licensed under Apache 2.0 License,
 # attached with Common Clause Condition 1.0, found in the LICENSES directory.
-
+from nebula2.Exception import ExecuteException
 from nebula2.common.ttypes import ErrorCode
 
 from nebula2.data.DataObject import DataSetWrapper
@@ -28,6 +28,8 @@ class ResultSet(object):
         self._data_set_wrapper = None
         self._all_latency = all_latency
         self._timezone_offset = timezone_offset
+        if self._resp.error_code:
+            raise ExecuteException('{}, {}'.format(self._resp.error_code, self._resp.error_msg))
         if self._resp.data is not None:
             self._data_set_wrapper = DataSetWrapper(data_set=resp.data,
                                                     decode_type=self._decode_type,
@@ -203,5 +205,3 @@ class ResultSet(object):
 
     def __ne__(self, other):
         return not (self == other)
-
-

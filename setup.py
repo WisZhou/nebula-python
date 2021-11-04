@@ -14,15 +14,15 @@ long_description = (base_dir / 'README.md').read_text()
 
 
 setup(
-    name='nebula2-python',
+    name='nebula2-python-aden',
     version='2.6.0',
     license='Apache 2.0 + Common Clause 1.0',
     author='vesoft-inc',
     author_email='info@vesoft.com',
-    description='Python client for Nebula Graph V2.0',
+    description='Python client for Nebula Graph V2.0, Aden fork',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/vesoft-inc/nebula-python',
+    url='https://github.com/WisZhou/nebula-python',
     install_requires=['httplib2',
                       'future',
                       'six',
